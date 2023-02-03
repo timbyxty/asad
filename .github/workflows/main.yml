@@ -13,19 +13,11 @@ jobs:
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
     - run: cat README.md
-    - name: Add changes to Git
-      run: |
-        git config --global user.name $user_name
-        git config --global user.email $user_email
-        git add .
-        git commit -m "editing README.md"
-    - name: Deploy
-      run: |
-        git remote set-url origin https://${github_token}@github.com/${repository}
-        npm run deploy
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v2.3.0
+      with:
+        commit_message: Apply Prettier changes
+        branch: ${{ github.head_ref }}
       env:
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
-        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        repository: ${{ github.repository }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
