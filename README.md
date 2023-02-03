@@ -1,4 +1,4 @@
 # asad
-```python
+```py
 // a.py
 ```
