@@ -17,5 +17,6 @@ jobs:
       run: |
         git add README.md
         git commit -m "embedded code"
-    - name: push
-      uses: ludeeus/action-push@0.0.1
+    - name: Push-Action
+      uses: Minionguyjpro/Push-Action@1.0.0
+
