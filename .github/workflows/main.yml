@@ -10,4 +10,4 @@ jobs:
     - run: cd ${{ github.workspace }}
     - run: ls -la
     - run: pwd
-    - run: npx embedme ${{ github.workspace }}"README.md"
+    - run: npx embedme README.md
