@@ -1,0 +1,7 @@
+name: abc
+on: [push]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    - run npx embedme README.md
