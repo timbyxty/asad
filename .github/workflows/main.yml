@@ -7,8 +7,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3.3.0
-      with:
-          token: ${{ secrets.ACCESS_TOKEN }}
     - run: npx embedme README.md
     - name: setup git config
       run: |
@@ -19,4 +17,5 @@ jobs:
       run: |
         git add README.md
         git commit -m "embedded code"
-    - run: git push https://${{secrets.ACCESS_TOKEN}}@github.com/timbyxty/asad.git
+    - name: push
+      uses: ludeeus/action-push@0.0.1
