@@ -20,7 +20,7 @@ jobs:
     - name: Push to private repository
       uses: ad-m/github-push-action@v0.6.0
       with:
-        github_token: ${{ env.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: main
         force: true
         repo: timbyxty/asad
