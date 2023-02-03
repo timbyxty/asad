@@ -5,6 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3.3.0
     - run: cd ${{ github.workspace }}
     - run: ls -la
     - run: pwd
