@@ -15,13 +15,17 @@ jobs:
     - run: cat README.md
     - name: Add changes to Git
       run: |
+        git config --global user.name $user_name
+        git config --global user.email $user_email
         git add .
         git commit -m "editing README.md"
-    - name: Push to private repository
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-        force: true
-        repository: timbyxty/asad
+    - name: Deploy
+      run: |
+        git remote set-url origin https://${github_token}@github.com/${repository}
+        npm run deploy
+      env:
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+        repository: ${{ github.repository }}
 
