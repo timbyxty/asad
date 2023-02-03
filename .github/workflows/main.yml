@@ -8,15 +8,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.3.0
     - run: npx embedme README.md
-    - name: setup git config
+    - name: Configure Git
       run: |
-        git config user.name "timbyxty"
-        git config user.email "timbyxtyt@gmail.com"
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
     - run: cat README.md
-    - name: commit
+    - name: Add changes to Git
       run: |
-        git add README.md
-        git commit -m "embedded code"
-    - name: Push-Action
-      uses: Minionguyjpro/Push-Action@1.0.0
+        git add .
+        git commit -m "editing README.md"
+    - name: Push to private repository
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ env.GITHUB_TOKEN }}
+        branch: main
+        force: true
+        repo: timbyxty/asad
 
