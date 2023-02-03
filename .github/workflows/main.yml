@@ -8,6 +8,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.3.0
     - run: npx embedme README.md
-    - run: git add README.md
-    - run: git commit -m "embedded code"
-    - run: git push origin main
+    - name: setup git config
+      run: |
+        git config user.name "timbyxty"
+        git config user.email "timbyxtyt@gmail.com"
+    - name: commit
+      run: |
+        git add README.md
+        git commit -m "embedded code"
+        git push origin main
