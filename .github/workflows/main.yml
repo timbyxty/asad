@@ -5,6 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+    - run: cd ${{ github.workspace }}
     - run: ls -la
     - run: pwd
     - run: npx embedme ${{ github.workspace }}"README.md"
