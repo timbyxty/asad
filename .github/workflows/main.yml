@@ -7,17 +7,5 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3.3.0
-    - run: npx embedme README.md
-    - name: Configure Git
-      run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
-    - run: cat README.md
-    - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v2.3.0
-      with:
-        commit_message: Apply Prettier changes
-        branch: main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: ls
 
