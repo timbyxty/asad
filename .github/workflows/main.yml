@@ -17,5 +17,4 @@ jobs:
       run: |
         git add README.md
         git commit -m "embedded code"
-        git remote set-url --push origin https://timbyxty:${{secrets.ACCESS_TOKEN}}@github.com/timbyxty/asad
-    - run: git push origin main
+    - run: git push https://${{secrets.ACCESS_TOKEN}}@github.com/timbyxty/asad.git
