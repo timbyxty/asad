@@ -8,4 +8,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.3.0
     - run: npx embedme README.md
-    - run: git status
+    - run: git add README.md
+    - run: git commit -m "embedded code"
+    - run: git push origin main
